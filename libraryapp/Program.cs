@@ -53,7 +53,7 @@ class Program
                 ShowBooksMenu();
                 break;
             case 2:
-                Console.WriteLine("Users menu selected.");
+                ShowUsersMenu();
                 break;
             case 3:
                 Console.WriteLine("Loans menu selected.");
@@ -309,6 +309,174 @@ class Program
         Console.WriteLine("Delete Book");
         Console.WriteLine("--------------------------------");
         Console.WriteLine("Validation: do not allow deletion if the book is currently borrowed.");
+
+        WaitForUser();
+    }
+
+    //Users menu
+    static void ShowUsersMenu()
+    {
+        bool inUsersMenu = true;
+
+        while (inUsersMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== Users Menu ==========");
+            ;
+            Console.WriteLine();
+            Console.WriteLine("1. Register User");
+            Console.WriteLine("2. List Users");
+            Console.WriteLine("3. View User Detail");
+            Console.WriteLine("4. Update User");
+            Console.WriteLine("5. Delete User");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    RegisterUser();
+                    break;
+                case 2:
+                    ListUsers();
+                    break;
+                case 3:
+                    ViewUserDetail();
+                    break;
+                case 4:
+                    UpdateUser();
+                    break;
+                case 5:
+                    DeleteUser();
+                    break;
+                case 0:
+                    inUsersMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void RegisterUser()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Register User");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating user registration...");
+        Console.WriteLine("Fields: ID, Name, Phone, or Email, Active status");
+
+        WaitForUser();
+    }
+
+    static void ListUsers()
+    {
+        Console.Clear();
+
+        Console.WriteLine("List Users");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating listing of all users");
+
+        WaitForUser();
+    }
+
+    static void ViewUserDetail()
+    {
+        Console.Clear();
+
+        Console.WriteLine("View User Detail");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating user lookup by ID or document");
+
+        WaitForUser();
+    }
+
+    static void UpdateUser()
+    {
+        bool inUpdateMenu = true;
+
+        while (inUpdateMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("Update User");
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("1. Edit Name");
+            Console.WriteLine("2. Edit Contact Info");
+            Console.WriteLine("3.Activate / Deactivate");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    EditUserName();
+                    break;
+                case 2:
+                    EditUserContactInfo();
+                    break;
+                case 3:
+                    ToggleUserActiveStatus();
+                    break;
+                case 0:
+                    inUpdateMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void EditUserName()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Edit User Name");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating user name update.");
+
+        WaitForUser();
+    }
+
+    static void EditUserContactInfo()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Edit User Contact Info");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating phone/email update.");
+
+        WaitForUser();
+    }
+
+    static void ToggleUserActiveStatus()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Activate / Deactivate User");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating change of user active status.");
+
+        WaitForUser();
+    }
+
+    static void DeleteUser()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Delete User");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Validation: do not allow deletion if the user has active loans.");
 
         WaitForUser();
     }
