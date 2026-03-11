@@ -65,7 +65,10 @@ class Program
                 ShowPersistenceMenu();
                 break;
             case 6:
-                isRunning = false;
+                if (ConfirmExitAndSave())
+                {
+                    isRunning = false;
+                }
                 break;
             default:
                 ShowInvalidOptionMessage();
@@ -924,5 +927,29 @@ class Program
         }
 
         return input == "Y";
+    }
+
+    static bool ConfirmExitAndSave()
+    {
+        Console.Clear();
+        Console.WriteLine("Exit System");
+        Console.Write("Do you want to save data before exiting? (Y/N): ");
+
+        string? input = Console.ReadLine().ToUpper();
+
+        while (input != "Y" && input != "N")
+        {
+            Console.Write("Please enter Y or N: ");
+            input = Console.ReadLine().ToUpper();
+        }
+
+        if (input == "Y")
+        {
+            SaveData();
+        }
+        Console.WriteLine("Exiting system...");
+        Console.ReadKey();
+
+        return true;
     }
 }
