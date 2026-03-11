@@ -59,7 +59,7 @@ class Program
                 ShowLoansMenu();
                 break;
             case 4:
-                Console.WriteLine("Search and Reports menu selected.");
+                ShowSearchAndReportsMenu();
                 break;
             case 5:
                 Console.WriteLine("Persistence menu selected.");
@@ -656,6 +656,169 @@ class Program
         Console.WriteLine("Suggested rules:");
         Console.WriteLine("- Allow deletion only if loan is closed");
         Console.WriteLine("- If deleting active loan, return book automatically");
+
+        WaitForUser();
+    }
+
+    static void ShowSearchAndReportsMenu()
+    {
+        bool inSearchMenu = true;
+
+        while (inSearchMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== Search and Reports =========");
+            Console.WriteLine("1. Search Books");
+            Console.WriteLine("2. Search Users");
+            Console.WriteLine("3. Reports");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    SearchBook();
+                    break;
+                case 2:
+                    SearchUser();
+                    break;
+                case 3:
+                    ShowReportsMenu();
+                    break;
+                case 0:
+                    inSearchMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void SearchBook()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Search Book");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Available search filters:");
+        Console.WriteLine("- By Title");
+        Console.WriteLine("- By Author");
+        Console.WriteLine("- By ISBN / ID");
+        Console.WriteLine("- By Category");
+
+        Console.WriteLine();
+        Console.WriteLine("Simulating book search");
+
+        WaitForUser();
+    }
+
+    static void SearchUser()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Search User");
+        Console.WriteLine("-------------------------------");
+        Console.WriteLine("Available search filters:");
+        Console.WriteLine("- By Name");
+        Console.WriteLine("- By ID / Document");
+
+        Console.WriteLine();
+        Console.WriteLine("Simulating user search.");
+
+        WaitForUser();
+    }
+
+    static void ShowReportsMenu()
+    {
+        bool inReportsMenu = true;
+
+        while (inReportsMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== Reports ==========");
+            Console.WriteLine("1. Loans by User");
+            Console.WriteLine("2. Loans by Book");
+            Console.WriteLine("3. Overdue Loans");
+            Console.WriteLine("4. System Summary");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    ReportByUser();
+                    break;
+                case 2:
+                    ReportByBook();
+                    break;
+                case 3:
+                    ReportOverdue();
+                    break;
+                case 4:
+                    ReportSummary();
+                    break;
+                case 0:
+                    inReportsMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void ReportByUser()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Report: Loans by User");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating report generation.");
+
+        WaitForUser();
+    }
+
+    static void ReportByBook()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Report: Loans by Book");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating report generation.");
+
+        WaitForUser();
+    }
+
+    static void ReportOverdue()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Report: Overdue Loans");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating report generation.");
+
+        WaitForUser();
+    }
+
+    static void ReportSummary()
+    {
+        Console.Clear();
+
+        Console.WriteLine("System Summary Report");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating systemsummary:");
+        Console.WriteLine("- Total books");
+        Console.WriteLine("- Available Books");
+        Console.WriteLine("- Borrowed Books");
 
         WaitForUser();
     }
