@@ -62,7 +62,7 @@ class Program
                 ShowSearchAndReportsMenu();
                 break;
             case 5:
-                Console.WriteLine("Persistence menu selected.");
+                ShowPersistenceMenu();
                 break;
             case 6:
                 isRunning = false;
@@ -821,5 +821,108 @@ class Program
         Console.WriteLine("- Borrowed Books");
 
         WaitForUser();
+    }
+
+    static void ShowPersistenceMenu()
+    {
+        bool inPersistenceMenu = true;
+
+        while (inPersistenceMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== Data MANAGEMENT==========");
+            Console.WriteLine("1. Save Data");
+            Console.WriteLine("2. Load Data");
+            Console.WriteLine("3. Reset Data");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    SaveData();
+                    break;
+                case 2:
+                    LoadData();
+                    break;
+                case 3:
+                    ResetData();
+                    break;
+                case 0:
+                    inPersistenceMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void SaveData()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Save Data");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating saving data:");
+        Console.WriteLine("- Books");
+        Console.WriteLine("- Users");
+        Console.WriteLine("- Loans");
+
+        WaitForUser();
+    }
+
+    static void LoadData()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Load Data");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating loading data:");
+        Console.WriteLine("- Books");
+        Console.WriteLine("- Users");
+        Console.WriteLine("- Loans");
+
+        WaitForUser();
+    }
+
+    static void ResetData()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Reset All Data");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("This action will remove all stored data.");
+        Console.WriteLine();
+
+        if (ConfirmResetData())
+        {
+            Console.WriteLine("All system data has been reset (simulation).");
+        }
+        else
+        {
+            Console.WriteLine("Operation cancelled.");
+        }
+
+        WaitForUser();
+    }
+
+    static bool ConfirmResetData()
+    {
+        Console.Write("Are you sure you want to reset all data? (Y/N): ");
+
+        string? input = Console.ReadLine().ToUpper();
+
+        while (input != "Y" && input != "N")
+        {
+            Console.Write("Please enter Y or N: ");
+            input = Console.ReadLine().ToUpper();
+        }
+
+        return input == "Y";
     }
 }
