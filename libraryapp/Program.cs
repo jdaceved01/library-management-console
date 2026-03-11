@@ -56,7 +56,7 @@ class Program
                 ShowUsersMenu();
                 break;
             case 3:
-                Console.WriteLine("Loans menu selected.");
+                ShowLoansMenu();
                 break;
             case 4:
                 Console.WriteLine("Search and Reports menu selected.");
@@ -477,6 +477,185 @@ class Program
         Console.WriteLine("Delete User");
         Console.WriteLine("--------------------------------");
         Console.WriteLine("Validation: do not allow deletion if the user has active loans.");
+
+        WaitForUser();
+    }
+
+    //Loans menu
+    static void ShowLoansMenu()
+    {
+        bool inLoansMenu = true;
+
+        while (inLoansMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("========== Loans Menu ==========");
+            Console.WriteLine();
+            Console.WriteLine("1. Create Loan");
+            Console.WriteLine("2. List Loans");
+            Console.WriteLine("3. View Loan Detail");
+            Console.WriteLine("4. Return Return");
+            Console.WriteLine("5. Delete Loan");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    CreateLoan();
+                    break;
+                case 2:
+                    ListLoansMenu();
+                    break;
+                case 3:
+                    ViewLoanDetail();
+                    break;
+                case 4:
+                    RegisterReturn();
+                    break;
+                case 5:
+                    DeleteLoan();
+                    break;
+                case 0:
+                    inLoansMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void CreateLoan()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Create Loan");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating loan creation...");
+        Console.WriteLine();
+        Console.WriteLine("Validations required:");
+        Console.WriteLine("- User must exist");
+        Console.WriteLine("- User must be active");
+        Console.WriteLine("- Book must exist");
+        Console.WriteLine("- Book must be available");
+        Console.WriteLine("- Optional: maximum active loans per user");
+
+        WaitForUser();
+    }
+
+    static void ListLoansMenu()
+    {
+        bool inListMenu = true;
+
+        while (inListMenu)
+        {
+            Console.Clear();
+
+            Console.WriteLine("List Loans");
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("1. List All");
+            Console.WriteLine("2. List Active");
+            Console.WriteLine("3. List Closed");
+            Console.WriteLine("0. Back");
+            Console.WriteLine();
+            Console.Write("Select an option: ");
+
+            int option = GetMenuOption();
+            switch (option)
+            {
+                case 1:
+                    ListLoansAll();
+                    break;
+                case 2:
+                    ListLoansActive();
+                    break;
+                case 3:
+                    ListLoansClosed();
+                    break;
+                case 0:
+                    inListMenu = false;
+                    break;
+                default:
+                    ShowInvalidOptionMessage();
+                    WaitForUser();
+                    break;
+            }
+        }
+    }
+
+    static void ListLoansAll()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Listing All Loans");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating list of all loans.");
+
+        WaitForUser();
+    }
+
+    static void ListLoansActive()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Listing Active Loans");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating list of active loans.");
+
+        WaitForUser();
+    }
+
+    static void ListLoansClosed()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Listing Closed Loans");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating list of returned loans.");
+
+        WaitForUser();
+    }
+
+    static void ViewLoanDetail()
+    {
+        Console.Clear();
+
+        Console.WriteLine("View Loan Detail");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating loan lookup by ID.");
+
+        WaitForUser();
+    }
+
+    static void RegisterReturn()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Register Return");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Simulating return process.");
+        Console.WriteLine();
+        Console.WriteLine("Expected system actions:");
+        Console.WriteLine("- Mark loan as returned");
+        Console.WriteLine("- Mark book as available");
+
+        WaitForUser();
+    }
+
+    static void DeleteLoan()
+    {
+        Console.Clear();
+
+        Console.WriteLine("Delete Loan");
+        Console.WriteLine("--------------------------------");
+        Console.WriteLine("Suggested rules:");
+        Console.WriteLine("- Allow deletion only if loan is closed");
+        Console.WriteLine("- If deleting active loan, return book automatically");
 
         WaitForUser();
     }
