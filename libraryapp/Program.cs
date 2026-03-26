@@ -1,7 +1,23 @@
 ﻿using System;
+using Models;
 
 class Program
 {
+    Libro libro1 = new Libro(1, "Clean Code", "Robert C. Martin", 2008, "Programming");
+Libro libro2 = new Libro(2, "The Pragmatic Programmer", "Andrew Hunt", 1999, "Programming");
+
+Usuario user1 = new Usuario(1, "Juan", "juan@email.com");
+Usuario user2 = new Usuario(2, "Maria", "maria@email.com");
+
+Prestamo prestamo = new Prestamo(1, DateTime.Now.AddDays(-5), DateTime.Now.AddDays(5));
+
+Console.WriteLine(libro1.DetalleCompleto());
+Console.WriteLine(user1.DetalleCompleto());
+Console.WriteLine(prestamo.DetalleCompleto());
+
+Console.WriteLine($"Está vencido: {prestamo.EstaVencido()}");
+Console.WriteLine($"Días transcurridos: {prestamo.DiasTranscurridos()}");
+
     static void Main()
     {
         Console.Title = "Library Management System";
